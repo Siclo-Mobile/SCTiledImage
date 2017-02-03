@@ -1,6 +1,6 @@
 //
 //  DrawableTile.swift
-//  APROPLAN
+//  SICLO
 //
 //  Created by Maxime POUWELS on 13/09/16.
 //  Copyright © 2016 Siclo. All rights reserved.

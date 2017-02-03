@@ -1,6 +1,6 @@
 //
 //  TiledImageDataSource.swift
-//  APROPLAN
+//  SICLO
 //
 //  Created by Maxime POUWELS on 15/09/16.
 //  Copyright © 2016 Siclo. All rights reserved.
