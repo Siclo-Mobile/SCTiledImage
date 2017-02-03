@@ -160,9 +160,10 @@ public class SCTiledImageScrollView: UIScrollView {
         setZoomScale(newZoomScale, animated: false)
     }
     
-    func updateContentOffset(withContentScale scale: CGPoint) {
-        contentOffset = CGPoint(x: maxContentOffset.x * scale.x, y: maxContentOffset.y * scale.y)
+    public func getContentView() -> UIView? {
+        return contentView
     }
+    
 }
 
 extension SCTiledImageScrollView: UIScrollViewDelegate {

@@ -9,9 +9,15 @@
 import UIKit
 
 public struct SCTile {
-    let level: Int
-    let col: Int
-    let row: Int
+    public let level: Int
+    public let col: Int
+    public let row: Int
+    
+    public init(level: Int, col: Int, row: Int) {
+        self.level = level
+        self.col = col
+        self.row = row
+    }
 }
 
 public protocol SCTiledImageViewDataSource: class {

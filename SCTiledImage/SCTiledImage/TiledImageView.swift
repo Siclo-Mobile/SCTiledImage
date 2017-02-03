@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class NoFadeTiledLayer: CATiledLayer {
-    override class func fadeDuration() -> CFTimeInterval {
+final public class NoFadeTiledLayer: CATiledLayer {
+    override public class func fadeDuration() -> CFTimeInterval {
         return 0
     }
 }
