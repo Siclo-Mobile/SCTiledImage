@@ -1,6 +1,6 @@
 //
 //  TiledImageContentView.swift
-//  TileViewTest
+//  SICLO
 //
 //  Created by Maxime POUWELS on 14/09/16.
 //  Copyright © 2016 siclo. All rights reserved.
