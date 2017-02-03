@@ -12,11 +12,11 @@
 		9C0253041E44889600F3457A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0253021E44889600F3457A /* Main.storyboard */; };
 		9C0253061E44889600F3457A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C0253051E44889600F3457A /* Assets.xcassets */; };
 		9C0253091E44889600F3457A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0253071E44889600F3457A /* LaunchScreen.storyboard */; };
-		9C0253151E4488A800F3457A /* TiledImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253101E4488A800F3457A /* TiledImageScrollView.swift */; };
-		9C0253161E4488A800F3457A /* TiledImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253111E4488A800F3457A /* TiledImageView.swift */; };
-		9C0253171E4488A800F3457A /* TiledImageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253121E4488A800F3457A /* TiledImageContentView.swift */; };
-		9C0253181E4488A800F3457A /* DrawableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253131E4488A800F3457A /* DrawableTile.swift */; };
-		9C0253191E4488A800F3457A /* TiledImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253141E4488A800F3457A /* TiledImageDataSource.swift */; };
+		9C02531F1E448C7000F3457A /* DrawableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C02531A1E448C7000F3457A /* DrawableTile.swift */; };
+		9C0253201E448C7000F3457A /* TiledImageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C02531B1E448C7000F3457A /* TiledImageContentView.swift */; };
+		9C0253211E448C7000F3457A /* TiledImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C02531C1E448C7000F3457A /* TiledImageDataSource.swift */; };
+		9C0253221E448C7000F3457A /* TiledImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C02531D1E448C7000F3457A /* TiledImageScrollView.swift */; };
+		9C0253231E448C7000F3457A /* TiledImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C02531E1E448C7000F3457A /* TiledImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +27,11 @@
 		9C0253051E44889600F3457A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C0253081E44889600F3457A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C02530A1E44889600F3457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C0253101E4488A800F3457A /* TiledImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageScrollView.swift; sourceTree = "<group>"; };
-		9C0253111E4488A800F3457A /* TiledImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageView.swift; sourceTree = "<group>"; };
-		9C0253121E4488A800F3457A /* TiledImageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageContentView.swift; sourceTree = "<group>"; };
-		9C0253131E4488A800F3457A /* DrawableTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableTile.swift; sourceTree = "<group>"; };
-		9C0253141E4488A800F3457A /* TiledImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageDataSource.swift; sourceTree = "<group>"; };
+		9C02531A1E448C7000F3457A /* DrawableTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawableTile.swift; path = SCTiledImage/DrawableTile.swift; sourceTree = "<group>"; };
+		9C02531B1E448C7000F3457A /* TiledImageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageContentView.swift; path = SCTiledImage/TiledImageContentView.swift; sourceTree = "<group>"; };
+		9C02531C1E448C7000F3457A /* TiledImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageDataSource.swift; path = SCTiledImage/TiledImageDataSource.swift; sourceTree = "<group>"; };
+		9C02531D1E448C7000F3457A /* TiledImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageScrollView.swift; path = SCTiledImage/TiledImageScrollView.swift; sourceTree = "<group>"; };
+		9C02531E1E448C7000F3457A /* TiledImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageView.swift; path = SCTiledImage/TiledImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +70,11 @@
 				9C0253051E44889600F3457A /* Assets.xcassets */,
 				9C0253071E44889600F3457A /* LaunchScreen.storyboard */,
 				9C02530A1E44889600F3457A /* Info.plist */,
-				9C0253101E4488A800F3457A /* TiledImageScrollView.swift */,
-				9C0253111E4488A800F3457A /* TiledImageView.swift */,
-				9C0253121E4488A800F3457A /* TiledImageContentView.swift */,
-				9C0253141E4488A800F3457A /* TiledImageDataSource.swift */,
-				9C0253131E4488A800F3457A /* DrawableTile.swift */,
+				9C02531A1E448C7000F3457A /* DrawableTile.swift */,
+				9C02531B1E448C7000F3457A /* TiledImageContentView.swift */,
+				9C02531C1E448C7000F3457A /* TiledImageDataSource.swift */,
+				9C02531D1E448C7000F3457A /* TiledImageScrollView.swift */,
+				9C02531E1E448C7000F3457A /* TiledImageView.swift */,
 			);
 			path = SCTiledImage;
 			sourceTree = "<group>";
@@ -152,12 +152,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C0253011E44889600F3457A /* ViewController.swift in Sources */,
-				9C0253151E4488A800F3457A /* TiledImageScrollView.swift in Sources */,
-				9C0253191E4488A800F3457A /* TiledImageDataSource.swift in Sources */,
+				9C0253211E448C7000F3457A /* TiledImageDataSource.swift in Sources */,
+				9C0253201E448C7000F3457A /* TiledImageContentView.swift in Sources */,
 				9C0252FF1E44889600F3457A /* AppDelegate.swift in Sources */,
-				9C0253171E4488A800F3457A /* TiledImageContentView.swift in Sources */,
-				9C0253161E4488A800F3457A /* TiledImageView.swift in Sources */,
-				9C0253181E4488A800F3457A /* DrawableTile.swift in Sources */,
+				9C0253221E448C7000F3457A /* TiledImageScrollView.swift in Sources */,
+				9C02531F1E448C7000F3457A /* DrawableTile.swift in Sources */,
+				9C0253231E448C7000F3457A /* TiledImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +319,7 @@
 				9C02530F1E44889600F3457A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
