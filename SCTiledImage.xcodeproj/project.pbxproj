@@ -12,6 +12,11 @@
 		9C0253041E44889600F3457A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0253021E44889600F3457A /* Main.storyboard */; };
 		9C0253061E44889600F3457A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C0253051E44889600F3457A /* Assets.xcassets */; };
 		9C0253091E44889600F3457A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0253071E44889600F3457A /* LaunchScreen.storyboard */; };
+		9C0253151E4488A800F3457A /* TiledImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253101E4488A800F3457A /* TiledImageScrollView.swift */; };
+		9C0253161E4488A800F3457A /* TiledImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253111E4488A800F3457A /* TiledImageView.swift */; };
+		9C0253171E4488A800F3457A /* TiledImageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253121E4488A800F3457A /* TiledImageContentView.swift */; };
+		9C0253181E4488A800F3457A /* DrawableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253131E4488A800F3457A /* DrawableTile.swift */; };
+		9C0253191E4488A800F3457A /* TiledImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253141E4488A800F3457A /* TiledImageDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		9C0253051E44889600F3457A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C0253081E44889600F3457A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C02530A1E44889600F3457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C0253101E4488A800F3457A /* TiledImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageScrollView.swift; sourceTree = "<group>"; };
+		9C0253111E4488A800F3457A /* TiledImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageView.swift; sourceTree = "<group>"; };
+		9C0253121E4488A800F3457A /* TiledImageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageContentView.swift; sourceTree = "<group>"; };
+		9C0253131E4488A800F3457A /* DrawableTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableTile.swift; sourceTree = "<group>"; };
+		9C0253141E4488A800F3457A /* TiledImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledImageDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,11 @@
 				9C0253051E44889600F3457A /* Assets.xcassets */,
 				9C0253071E44889600F3457A /* LaunchScreen.storyboard */,
 				9C02530A1E44889600F3457A /* Info.plist */,
+				9C0253101E4488A800F3457A /* TiledImageScrollView.swift */,
+				9C0253111E4488A800F3457A /* TiledImageView.swift */,
+				9C0253121E4488A800F3457A /* TiledImageContentView.swift */,
+				9C0253141E4488A800F3457A /* TiledImageDataSource.swift */,
+				9C0253131E4488A800F3457A /* DrawableTile.swift */,
 			);
 			path = SCTiledImage;
 			sourceTree = "<group>";
@@ -137,7 +152,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C0253011E44889600F3457A /* ViewController.swift in Sources */,
+				9C0253151E4488A800F3457A /* TiledImageScrollView.swift in Sources */,
+				9C0253191E4488A800F3457A /* TiledImageDataSource.swift in Sources */,
 				9C0252FF1E44889600F3457A /* AppDelegate.swift in Sources */,
+				9C0253171E4488A800F3457A /* TiledImageContentView.swift in Sources */,
+				9C0253161E4488A800F3457A /* TiledImageView.swift in Sources */,
+				9C0253181E4488A800F3457A /* DrawableTile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +223,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -247,7 +267,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
