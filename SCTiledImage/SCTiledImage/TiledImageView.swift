@@ -14,7 +14,7 @@ final class NoFadeTiledLayer: CATiledLayer {
     }
 }
 
-final class TiledImageView: UIView {
+final class SCTiledImageView: UIView {
     
     override class var layerClass: AnyClass {
         return NoFadeTiledLayer.self
@@ -24,8 +24,8 @@ final class TiledImageView: UIView {
         return "\(level)-\(col)-\(row)"
     }
     
-    fileprivate var dataSource: TiledImageViewDataSource!
-    fileprivate let tileCache = NSCache<NSString, DrawableTile>()
+    fileprivate var dataSource: SCTiledImageViewDataSource!
+    fileprivate let tileCache = NSCache<NSString, SCDrawableTile>()
     
     deinit {
         layer.contents = nil
@@ -33,7 +33,7 @@ final class TiledImageView: UIView {
         layer.removeFromSuperlayer()
     }
     
-    func set(dataSource: TiledImageViewDataSource) {
+    func set(dataSource: SCTiledImageViewDataSource) {
         backgroundColor = UIColor.clear
         self.dataSource = dataSource
         dataSource.delegate = self
@@ -69,17 +69,17 @@ final class TiledImageView: UIView {
         let firstRow = Int(floor(rect.minY / tileSize.height))
         let lastRow = Int(floor((rect.maxY-1) / tileSize.height))
         
-        var tilesToRequest: [Tile] = []
+        var tilesToRequest: [SCTile] = []
         
         for rowInt in firstRow...lastRow {
             let row = CGFloat(rowInt)
             for colInt in firstCol...lastCol {
                 let col = CGFloat(colInt)
 
-                let cacheKey = TiledImageView.cacheKey(forLevel: level, col: colInt, row: rowInt)
+                let cacheKey = SCTiledImageView.cacheKey(forLevel: level, col: colInt, row: rowInt)
                 var missingImageRect: CGRect?
                 
-                if let cachedDrawableTile = tileCache.object(forKey: cacheKey as NSString) as DrawableTile? {
+                if let cachedDrawableTile = tileCache.object(forKey: cacheKey as NSString) as SCDrawableTile? {
                     if cachedDrawableTile.hasImage() {
                         cachedDrawableTile.draw()
                     } else {
@@ -93,8 +93,8 @@ final class TiledImageView: UIView {
                     var tileRect = CGRect(x: x, y: y, width: width, height: height)
                     tileRect = bounds.intersection(tileRect)
                     
-                    let drawableTile = DrawableTile(rect: tileRect)
-                    let tile = Tile(level: level, col: colInt, row: rowInt)
+                    let drawableTile = SCDrawableTile(rect: tileRect)
+                    let tile = SCTile(level: level, col: colInt, row: rowInt)
                     
                     if let image = dataSource.getCachedImage(for: tile) {
                         drawableTile.image = image
@@ -127,12 +127,12 @@ final class TiledImageView: UIView {
             let zoomCol = col / scaleDifference
             let zoomRow = row / scaleDifference
             
-            let cacheKey = TiledImageView.cacheKey(forLevel: level, col: zoomCol, row: zoomRow)
+            let cacheKey = SCTiledImageView.cacheKey(forLevel: level, col: zoomCol, row: zoomRow)
             var tileImage: UIImage?
-            if let lowerResTile = tileCache.object(forKey: cacheKey as NSString) as DrawableTile? {
+            if let lowerResTile = tileCache.object(forKey: cacheKey as NSString) as SCDrawableTile? {
                 tileImage = lowerResTile.image
             } else {
-                let tile = Tile(level: level, col: zoomCol, row: zoomRow)
+                let tile = SCTile(level: level, col: zoomCol, row: zoomRow)
                 tileImage = dataSource.getCachedImage(for: tile)
             }
             
@@ -153,12 +153,12 @@ final class TiledImageView: UIView {
     
 }
 
-extension TiledImageView: TiledImageViewDataSourceDelegate {
+extension SCTiledImageView: SCTiledImageViewDataSourceDelegate {
     
-    func didRetrieve(tilesWithImage: [(Tile, UIImage)]) {
+    func didRetrieve(tilesWithImage: [(SCTile, UIImage)]) {
         for (tile, image) in tilesWithImage {
-            let cacheKey = TiledImageView.cacheKey(forLevel: tile.level, col: tile.col, row: tile.row)
-            if let cachedTile = tileCache.object(forKey: cacheKey as NSString) as DrawableTile? {
+            let cacheKey = SCTiledImageView.cacheKey(forLevel: tile.level, col: tile.col, row: tile.row)
+            if let cachedTile = tileCache.object(forKey: cacheKey as NSString) as SCDrawableTile? {
                 cachedTile.image = image
                 DispatchQueue.main.async { [weak self] in
                     self?.setNeedsDisplay(cachedTile.tileRect)

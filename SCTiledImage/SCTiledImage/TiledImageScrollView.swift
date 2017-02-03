@@ -8,21 +8,22 @@
 
 import UIKit
 
-public protocol TiledImageScrollViewDelegate: class {
-    func tiledImageScrollViewDidScrollOrZoom(_ tiledImageScrollView: TiledImageScrollView)
+public protocol SCTiledImageScrollViewDelegate: class {
+    func tiledImageScrollViewDidScrollOrZoom(_ tiledImageScrollView: SCTiledImageScrollView)
 }
 
-public class TiledImageScrollView: UIScrollView {
+public class SCTiledImageScrollView: UIScrollView {
     
     private static let zoomStep: CGFloat = 2
     
-    fileprivate var contentView: TiledImageContentView?
+    fileprivate var contentView: SCTiledImageContentView?
     fileprivate var currentBounds = CGSize.zero
     public private(set) var doubleTap: UITapGestureRecognizer!
     public private(set) var twoFingersTap: UITapGestureRecognizer!
+    private var addedSubviews: [UIView] = []
     
-    fileprivate weak var dataSource: TiledImageViewDataSource?
-    public weak var tiledImageScrollViewDelegate: TiledImageScrollViewDelegate?
+    fileprivate weak var dataSource: SCTiledImageViewDataSource?
+    public weak var tiledImageScrollViewDelegate: SCTiledImageScrollViewDelegate?
     
     public var visibleRect: CGRect {
         return convert(bounds, to: contentView)
@@ -50,11 +51,11 @@ public class TiledImageScrollView: UIScrollView {
     private func setup() {
         delegate = self
         
-        doubleTap = UITapGestureRecognizer(target: self, action:#selector(TiledImageScrollView.handleDoubleTap(_:)))
+        doubleTap = UITapGestureRecognizer(target: self, action:#selector(SCTiledImageScrollView.handleDoubleTap(_:)))
         doubleTap.numberOfTapsRequired = 2
         addGestureRecognizer(doubleTap)
         
-        twoFingersTap = UITapGestureRecognizer(target: self, action: #selector(TiledImageScrollView.handleTwoFingersTap(_:)))
+        twoFingersTap = UITapGestureRecognizer(target: self, action: #selector(SCTiledImageScrollView.handleTwoFingersTap(_:)))
         twoFingersTap.numberOfTouchesRequired = 2
         addGestureRecognizer(twoFingersTap)
         
@@ -62,19 +63,27 @@ public class TiledImageScrollView: UIScrollView {
         addObserver(self, forKeyPath: "bounds", options: .new, context: nil)
     }
     
-    public func set(dataSource: TiledImageViewDataSource) {
+    public func set(dataSource: SCTiledImageViewDataSource) {
         self.dataSource = dataSource
         contentView?.removeFromSuperview()
         
-        let tiledImageView = TiledImageView()
+        let tiledImageView = SCTiledImageView()
         tiledImageView.set(dataSource: dataSource)
-        contentView = TiledImageContentView(tiledImageView: tiledImageView, dataSource: dataSource)
+        contentView = SCTiledImageContentView(tiledImageView: tiledImageView, dataSource: dataSource)
+        for subview in addedSubviews {
+            contentView!.add(subview)
+        }
         addSubview(contentView!)
         
         currentBounds = bounds.size
         contentSize = dataSource.imageSize
         setMaxMinZoomScalesForCurrentBounds()
         setZoomScale(minimumZoomScale, animated: false)
+    }
+    
+    public func add(subview: UIView) {
+        contentView?.add(subview)
+        addedSubviews.append(subview)
     }
     
     fileprivate func setMaxMinZoomScalesForCurrentBounds() {
@@ -126,7 +135,7 @@ public class TiledImageScrollView: UIScrollView {
             setZoomScale(minimumZoomScale, animated: false)
         } else {
             let tapCenter = gestureRecognizer.location(in: contentView)
-            let newScale = min(zoomScale * TiledImageScrollView.zoomStep, maximumZoomScale)
+            let newScale = min(zoomScale * SCTiledImageScrollView.zoomStep, maximumZoomScale)
             let maxZoomRect = rect(around: tapCenter, atZoomScale: newScale)
             zoom(to: maxZoomRect, animated: false)
         }
@@ -145,7 +154,7 @@ public class TiledImageScrollView: UIScrollView {
         if zoomScale == minimumZoomScale {
             newZoomScale = maximumZoomScale
         } else {
-            let nextZoomScale = zoomScale/TiledImageScrollView.zoomStep
+            let nextZoomScale = zoomScale/SCTiledImageScrollView.zoomStep
             newZoomScale = nextZoomScale < minimumZoomScale  ? minimumZoomScale : nextZoomScale
         }
         setZoomScale(newZoomScale, animated: false)
@@ -156,7 +165,7 @@ public class TiledImageScrollView: UIScrollView {
     }
 }
 
-extension TiledImageScrollView: UIScrollViewDelegate {
+extension SCTiledImageScrollView: UIScrollViewDelegate {
     
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return contentView

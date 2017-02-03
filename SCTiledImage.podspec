@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = 'Tiled Image view for iOS: display images with multiple layers of zoom / tiles'
  
   s.description      = <<-DESC
-Tiled Image view for iOS: display images with multiple layers of zoom / tiles
+Tiled Image view for iOS: display images with multiple layers of zoom / tiles, in Swift
                        DESC
  
   s.homepage         = 'https://github.com/Siclo-Mobile/SCTiledImage'

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class TiledImageContentView: UIView {
+class SCTiledImageContentView: UIView {
     
-    private let tiledImageView: TiledImageView
+    private let tiledImageView: SCTiledImageView
     private let backgroundImageView: UIImageView
     
-    init(tiledImageView: TiledImageView, dataSource: TiledImageViewDataSource) {
+    init(tiledImageView: SCTiledImageView, dataSource: SCTiledImageViewDataSource) {
         self.tiledImageView = tiledImageView
         self.backgroundImageView = UIImageView(frame: tiledImageView.bounds)
         super.init(frame: tiledImageView.frame)

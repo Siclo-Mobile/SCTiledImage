@@ -8,22 +8,22 @@
 
 import UIKit
 
-public struct Tile {
+public struct SCTile {
     let level: Int
     let col: Int
     let row: Int
 }
 
-public protocol TiledImageViewDataSource: class {
-    var delegate: TiledImageViewDataSourceDelegate? { get set }
+public protocol SCTiledImageViewDataSource: class {
+    var delegate: SCTiledImageViewDataSourceDelegate? { get set }
     var imageSize: CGSize { get }
     var tileSize: CGSize { get }
     var zoomLevels: Int { get }
-    func requestTiles(_ tiles: [Tile])
+    func requestTiles(_ tiles: [SCTile])
     func requestBackgroundImage(completionHandler: @escaping (UIImage?) -> ())
-    func getCachedImage(for tile: Tile) -> UIImage?
+    func getCachedImage(for tile: SCTile) -> UIImage?
 }
 
-public protocol TiledImageViewDataSourceDelegate: class {
-    func didRetrieve(tilesWithImage: [(Tile, UIImage)])
+public protocol SCTiledImageViewDataSourceDelegate: class {
+    func didRetrieve(tilesWithImage: [(SCTile, UIImage)])
 }

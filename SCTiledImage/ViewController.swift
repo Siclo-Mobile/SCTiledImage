@@ -9,17 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var tiledImageScrollView: SCTiledImageScrollView!
+    private var dataSource: ExampleTiledImageDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setupTiledImageScrollView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setupTiledImageScrollView() {
+        let imageSize = CGSize(width: 9112, height: 4677)
+        let tileSize = CGSize(width: 256, height: 256)
+        let zoomLevels = 4
+        
+        dataSource = ExampleTiledImageDataSource(imageSize: imageSize, tileSize: tileSize, zoomLevels: zoomLevels)
+        tiledImageScrollView.set(dataSource: dataSource!)
     }
-
-
+    
 }
-

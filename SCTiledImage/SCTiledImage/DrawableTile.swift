@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawableTile {
+class SCDrawableTile {
     
     var image: UIImage?
     let tileRect: CGRect
