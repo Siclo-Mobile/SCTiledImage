@@ -7,8 +7,6 @@ Tiled Image view for iOS: display images with multiple layers of zoom / tiles
 ![alt text](https://github.com/dblock/ARTiledImageView/raw/master/Screenshots/goya3.gif "Demo")
 
 ##Usage
-
-Add this to your module's build.gradle
 ```javascript
 ARWebTiledImageDataSource *ds = [[ARWebTiledImageDataSource alloc] init];
 // height of the full zoomed in image
