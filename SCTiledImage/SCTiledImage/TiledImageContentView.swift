@@ -3,7 +3,7 @@
 //  SICLO
 //
 //  Created by Maxime POUWELS on 14/09/16.
-//  Copyright © 2016 siclo. All rights reserved.
+//  Copyright © 2016 Siclo. All rights reserved.
 //
 
 import UIKit

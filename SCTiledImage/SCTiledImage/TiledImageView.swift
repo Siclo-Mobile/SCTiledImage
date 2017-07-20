@@ -34,7 +34,9 @@ final class SCTiledImageView: UIView {
     }
     
     func set(dataSource: SCTiledImageViewDataSource) {
+        clipsToBounds = true
         backgroundColor = UIColor.clear
+        
         self.dataSource = dataSource
         dataSource.delegate = self
         
@@ -47,11 +49,17 @@ final class SCTiledImageView: UIView {
         }
         layer.tileSize = tileSize
         
-        let imageSize = dataSource.imageSize
+        let imageSize = dataSource.displayedImageSize
         frame = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
     }
-
+    
     override func draw(_ rect: CGRect) {
+        let rotation = dataSource.rotation
+        let oppositeRotation = rotation.opposite
+        let imageSize = dataSource.imageSize
+        let oppositeImageSize = dataSource.displayedImageSize
+        
+        let rect = oppositeRotation.rotate(rect, in: oppositeImageSize)
         let context = UIGraphicsGetCurrentContext()!
         let scaleX = context.ctm.a / UIScreen.main.scale
         let scaleY = context.ctm.d / UIScreen.main.scale
@@ -75,7 +83,7 @@ final class SCTiledImageView: UIView {
             let row = CGFloat(rowInt)
             for colInt in firstCol...lastCol {
                 let col = CGFloat(colInt)
-
+                
                 let cacheKey = SCTiledImageView.cacheKey(forLevel: level, col: colInt, row: rowInt)
                 var missingImageRect: CGRect?
                 
@@ -91,6 +99,7 @@ final class SCTiledImageView: UIView {
                     let width = tileSize.width
                     let height = tileSize.height
                     var tileRect = CGRect(x: x, y: y, width: width, height: height)
+                    tileRect = rotation.rotate(tileRect, in: imageSize)
                     tileRect = bounds.intersection(tileRect)
                     
                     let drawableTile = SCDrawableTile(rect: tileRect)
@@ -126,9 +135,9 @@ final class SCTiledImageView: UIView {
             let scaleDifference = zoomDifference * 2
             let zoomCol = col / scaleDifference
             let zoomRow = row / scaleDifference
-            
+
             let cacheKey = SCTiledImageView.cacheKey(forLevel: level, col: zoomCol, row: zoomRow)
-            var tileImage: UIImage?
+            let tileImage: UIImage?
             if let lowerResTile = tileCache.object(forKey: cacheKey as NSString) as SCDrawableTile? {
                 tileImage = lowerResTile.image
             } else {
@@ -136,18 +145,21 @@ final class SCTiledImageView: UIView {
                 tileImage = dataSource.getCachedImage(for: tile)
             }
             
-            if let image = tileImage, let cgImage = image.cgImage {
-                let cropCol = col % scaleDifference
-                let cropRow = row % scaleDifference
-                let scaleDifferenceFloat = CGFloat(scaleDifference)
-                
-                let size = CGSize(width: tileSize.width / scaleDifferenceFloat, height: tileSize.height / scaleDifferenceFloat)
-                let cropBounds = CGRect(x: CGFloat(cropCol) * size.width, y: CGFloat(cropRow) * size.height, width: size.width, height: size.height)
-                if let resizedImage = cgImage.cropping(to: cropBounds) {
-                    UIImage(cgImage: resizedImage).draw(in: tileRect)
-                }
-                break
+            guard let image = tileImage, let cgImage = image.cgImage else {
+                continue
             }
+            
+            let cropCol = col % scaleDifference
+            let cropRow = row % scaleDifference
+            let scaleDifferenceFloat = CGFloat(scaleDifference)
+            
+            let size = CGSize(width: tileSize.width / scaleDifferenceFloat, height: tileSize.height / scaleDifferenceFloat)
+            var cropBounds = CGRect(x: CGFloat(cropCol) * size.width, y: CGFloat(cropRow) * size.height, width: size.width, height: size.height)
+            cropBounds = dataSource.rotation.rotate(cropBounds, in: tileSize)
+            if let resizedImage = cgImage.cropping(to: cropBounds) {
+                UIImage(cgImage: resizedImage).draw(in: tileRect)
+            }
+            break
         }
     }
     

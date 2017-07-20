@@ -29,7 +29,7 @@ public class SCTiledImageScrollView: UIScrollView {
         return convert(bounds, to: contentView)
     }
     public var maxContentOffset: CGPoint {
-        guard let imageSize = dataSource?.imageSize else { return CGPoint.zero }
+        guard let imageSize = dataSource?.displayedImageSize else { return CGPoint.zero }
         return CGPoint(x: imageSize.width * self.maximumZoomScale, y: imageSize.height * self.maximumZoomScale)
     }
     
@@ -64,6 +64,10 @@ public class SCTiledImageScrollView: UIScrollView {
     }
     
     public func set(dataSource: SCTiledImageViewDataSource) {
+        var dataSource = dataSource
+        if dataSource.rotation != .none {
+            dataSource = TiledImageDataSourceRotationDecorator(tiledImageDataSource: dataSource)
+        }
         self.dataSource = dataSource
         contentView?.removeFromSuperview()
         
@@ -76,7 +80,7 @@ public class SCTiledImageScrollView: UIScrollView {
         addSubview(contentView!)
         
         currentBounds = bounds.size
-        contentSize = dataSource.imageSize
+        contentSize = dataSource.displayedImageSize
         setMaxMinZoomScalesForCurrentBounds()
         setZoomScale(minimumZoomScale, animated: false)
     }
@@ -94,7 +98,7 @@ public class SCTiledImageScrollView: UIScrollView {
         layoutIfNeeded()
         let boundsSize = bounds.size
         
-        let imageSize = dataSource.imageSize
+        let imageSize = dataSource.displayedImageSize
         let xScale = boundsSize.width / imageSize.width
         let yScale = boundsSize.height / imageSize.height
         var minScale = min(xScale, yScale)
