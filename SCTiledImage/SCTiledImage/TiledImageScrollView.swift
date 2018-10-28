@@ -134,7 +134,7 @@ public class SCTiledImageScrollView: UIScrollView {
         contentView?.frame.origin = CGPoint(x: topX, y: topY)
     }
     
-    func handleDoubleTap(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc func handleDoubleTap(_ gestureRecognizer: UIGestureRecognizer) {
         if zoomScale >= maximumZoomScale {
             setZoomScale(minimumZoomScale, animated: false)
         } else {
@@ -152,7 +152,7 @@ public class SCTiledImageScrollView: UIScrollView {
         return point
     }
     
-    func handleTwoFingersTap(_ sender: AnyObject) {
+    @objc func handleTwoFingersTap(_ sender: AnyObject) {
         let newZoomScale: CGFloat
             
         if zoomScale == minimumZoomScale {
