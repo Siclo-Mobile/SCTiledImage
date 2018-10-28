@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SCTiledImage'
-  s.version          = '0.3.0'
+  s.version          = '1.0.0'
   s.summary          = 'Tiled Image view for iOS: display images with multiple layers of zoom / tiles, with rotation (optional)'
  
   s.description      = <<-DESC
