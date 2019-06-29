@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		641D2B2022C77674001BD0D4 /* TiledImageDataSourceRotationDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D2B1E22C77674001BD0D4 /* TiledImageDataSourceRotationDecorator.swift */; };
+		641D2B2122C77674001BD0D4 /* TiledImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D2B1F22C77674001BD0D4 /* TiledImageRotation.swift */; };
 		9C0252FF1E44889600F3457A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0252FE1E44889600F3457A /* AppDelegate.swift */; };
 		9C0253011E44889600F3457A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0253001E44889600F3457A /* ViewController.swift */; };
 		9C0253041E44889600F3457A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0253021E44889600F3457A /* Main.storyboard */; };
@@ -943,11 +945,11 @@
 		9C3E45FD1E449A2E0065B297 /* 3-4-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3E42601E449A2C0065B297 /* 3-4-1.jpg */; };
 		9C3E45FE1E449A2E0065B297 /* 3-4-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3E42611E449A2C0065B297 /* 3-4-2.jpg */; };
 		9C3E45FF1E449A2E0065B297 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3E42621E449A2C0065B297 /* background.jpg */; };
-		9C52700F1F2076CB006F1F79 /* TiledImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C52700D1F2076CB006F1F79 /* TiledImageRotation.swift */; };
-		9C5270101F2076CB006F1F79 /* TiledImageDataSourceRotationDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C52700E1F2076CB006F1F79 /* TiledImageDataSourceRotationDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		641D2B1E22C77674001BD0D4 /* TiledImageDataSourceRotationDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageDataSourceRotationDecorator.swift; path = SCTiledImage/TiledImageDataSourceRotationDecorator.swift; sourceTree = "<group>"; };
+		641D2B1F22C77674001BD0D4 /* TiledImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageRotation.swift; path = SCTiledImage/TiledImageRotation.swift; sourceTree = "<group>"; };
 		9C0252FB1E44889600F3457A /* SCTiledImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCTiledImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0252FE1E44889600F3457A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C0253001E44889600F3457A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1886,8 +1888,6 @@
 		9C3E42601E449A2C0065B297 /* 3-4-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-4-1.jpg"; sourceTree = "<group>"; };
 		9C3E42611E449A2C0065B297 /* 3-4-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-4-2.jpg"; sourceTree = "<group>"; };
 		9C3E42621E449A2C0065B297 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		9C52700D1F2076CB006F1F79 /* TiledImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageRotation.swift; path = "../../AproPLAN/aproplan-swift/Pods/SCTiledImage/SCTiledImage/SCTiledImage/TiledImageRotation.swift"; sourceTree = "<group>"; };
-		9C52700E1F2076CB006F1F79 /* TiledImageDataSourceRotationDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledImageDataSourceRotationDecorator.swift; path = "../../AproPLAN/aproplan-swift/Pods/SCTiledImage/SCTiledImage/SCTiledImage/TiledImageDataSourceRotationDecorator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1941,8 +1941,8 @@
 				9C02531A1E448C7000F3457A /* DrawableTile.swift */,
 				9C02531B1E448C7000F3457A /* TiledImageContentView.swift */,
 				9C02531C1E448C7000F3457A /* TiledImageDataSource.swift */,
-				9C52700E1F2076CB006F1F79 /* TiledImageDataSourceRotationDecorator.swift */,
-				9C52700D1F2076CB006F1F79 /* TiledImageRotation.swift */,
+				641D2B1E22C77674001BD0D4 /* TiledImageDataSourceRotationDecorator.swift */,
+				641D2B1F22C77674001BD0D4 /* TiledImageRotation.swift */,
 			);
 			name = "Tiled Image view";
 			sourceTree = "<group>";
@@ -2906,19 +2906,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = siclo;
 				TargetAttributes = {
 					9C0252FA1E44889600F3457A = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 9C0252F61E44889600F3457A /* Build configuration list for PBXProject "SCTiledImage" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -3881,11 +3881,11 @@
 				9C0253211E448C7000F3457A /* TiledImageDataSource.swift in Sources */,
 				9C0253201E448C7000F3457A /* TiledImageContentView.swift in Sources */,
 				9C0252FF1E44889600F3457A /* AppDelegate.swift in Sources */,
-				9C52700F1F2076CB006F1F79 /* TiledImageRotation.swift in Sources */,
-				9C5270101F2076CB006F1F79 /* TiledImageDataSourceRotationDecorator.swift in Sources */,
 				9C0253221E448C7000F3457A /* TiledImageScrollView.swift in Sources */,
 				9C35AA251E44966A009FF963 /* ExampleTiledImageDataSource.swift in Sources */,
+				641D2B2122C77674001BD0D4 /* TiledImageRotation.swift in Sources */,
 				9C02531F1E448C7000F3457A /* DrawableTile.swift in Sources */,
+				641D2B2022C77674001BD0D4 /* TiledImageDataSourceRotationDecorator.swift in Sources */,
 				9C0253231E448C7000F3457A /* TiledImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4029,8 +4029,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siclo.SCTiledImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -4042,8 +4041,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siclo.SCTiledImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
