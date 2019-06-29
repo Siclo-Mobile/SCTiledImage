@@ -2918,10 +2918,9 @@
 			};
 			buildConfigurationList = 9C0252F61E44889600F3457A /* Build configuration list for PBXProject "SCTiledImage" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
