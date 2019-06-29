@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SCTiledImage'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = 'Tiled Image view for iOS: display images with multiple layers of zoom / tiles, with rotation (optional)'
  
   s.description      = <<-DESC
@@ -13,6 +13,7 @@ Tiled Image view for iOS: display images with multiple layers of zoom / tiles, w
   s.source           = { :git => 'https://github.com/Siclo-Mobile/SCTiledImage.git', :tag => s.version.to_s }
  
   s.ios.deployment_target = '8.0'
+  s.swift_version = '5.0'
   s.source_files = 'SCTiledImage/SCTiledImage/*.swift'
  
 end
